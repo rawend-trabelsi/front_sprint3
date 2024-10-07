@@ -1,0 +1,40 @@
+<div class="container"> 
+    
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+    <label>Types </label> 
+    <select class="form-control form-control-lg" id="idType" name="idType" [(ngModel)]="IdType"    (change)="onChange()">         
+          <option *ngFor="let typ of types" value="{{typ.idType}}">    
+               {{typ.nomType}} 
+          </option> 
+    </select>                      
+</div> 
+    <div class="card shadow mb-4">                    
+      <div class="card-body">  
+
+       <table class="table table-striped"> 
+          <tr> <th>Id</th><th>Nom</th> <th>Prix</th>  <th>Date Création</th> <th>couleur</th><th>Type</th>
+  
+           </tr> 
+                <tbody *ngFor="let smartphone of smartphones"> 
+                         <tr > 
+                            <td>{{smartphone.idSmartphone}}</td> 
+                            <td>{{smartphone.nomSmartphone}}</td> 
+                            <td>{{smartphone.prixSmartphone}}</td> 
+                            <td>{{smartphone.datecreation | date:'dd/MM/yyyy'}}</td> 
+                           
+  
+                            <td>{{smartphone.couleur}}</td>
+                            <td>{{smartphone.type?.nomType}}</td> 
+                            <!-- <td><a class="btn btn-danger" (click)="supprimerSmartphone(smartphone)">Supprimer</a></td>
+                            <td><a class="btn btn-success" [routerLink]="['/updateSmartphone',smartphone.idSmartphone]">Modifier</a></td>  -->
+                          </tr> 
+                                                              
+                 </tbody> 
+      </table> 
+      </div> 
+    </div> 
+  </div>  
+
+
+
+

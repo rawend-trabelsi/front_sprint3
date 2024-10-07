@@ -1,0 +1,51 @@
+<div class="container"> 
+    <div> 
+      <h2>Modifier un smartphone:</h2>              
+    </div> 
+         <form >          
+             <div  class="col-sm-2 col-md-2 col-lg-2"> 
+               <label >ID  Produit</label> 
+               <input  readonly type="text"  [(ngModel)]="currentSmartphone.idSmartphone" 
+ 
+                   name="idProduit" class="form-control"> 
+              </div> 
+          
+             <div class="col-sm-4 col-md-4 col-lg-4" > 
+               <label >Nom Produit</label> 
+               <input  type="text"[(ngModel)]= "currentSmartphone.nomSmartphone"   
+                   name="nomProduit" class="form-control"> 
+             </div> 
+
+             <div class="col-sm-2 col-md-2 col-lg-2"> 
+               <label >Prix Produit</label> 
+           <input type="number"   [(ngModel)]= "currentSmartphone.prixSmartphone" 
+ 
+                   name="prixProduit" class="form-control"> 
+             </div> 
+
+             <div class="col-sm-4 col-md-4 col-lg-4"> 
+                <label >Date création</label> 
+                <input  type="date"  [ngModel]="currentSmartphone.datecreation | date: 'yyyy-MM-dd'"  
+                (ngModelChange)=" currentSmartphone.datecreation= $event"   name="Datecreation"  
+                class="form-control"> 
+                         </div> 
+                         <div class="col-sm-4 col-md-4 col-lg-4" > 
+                            <label >couleur</label> 
+                            <input  type="text"[(ngModel)]= "currentSmartphone.couleur"   
+                                name="couleur" class="form-control"> 
+                          </div>
+                       <div class="col-sm-4 col-md-4 col-lg-4"> 
+                            <label >type</label> 
+<select class="form-control form-control-lg" id="idCat" name="idCat"    
+[(ngModel)]="updatedTypId">         
+<option *ngFor="let typ of types" [value]="typ.idType" >    
+{{typ.nomType}} 
+</option> 
+</select>                      
+</div>  
+                          
+                          <div class="mt-2"> 
+           <button type="submit"  (click)="updateSmartphonet()" class="btn btn-success">Modifer</button> 
+                          </div>   
+                     </form> 
+           </div>  

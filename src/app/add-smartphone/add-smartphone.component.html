@@ -1,0 +1,45 @@
+<div class="container"> 
+    <h2>Ajouter un smartphone :</h2>              
+    <form (ngSubmit)="addSmartphone()"> <!-- Utilisez ngSubmit pour gérer la soumission du formulaire -->
+        <div hidden class="col-sm-2 col-md-2 col-lg-2"> 
+            <label>ID Smartphone</label> 
+            <input type="text" [(ngModel)]="newSmartphone.idSmartphone" name="idSmartphone" class="form-control" required /> 
+        </div> 
+
+        <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <label>Nom Smartphone</label> 
+            <input type="text" [(ngModel)]="newSmartphone.nomSmartphone" name="nomSmartphone" class="form-control" required /> 
+        </div> 
+
+        <div class="col-sm-2 col-md-2 col-lg-2"> 
+            <label>Prix smartphone</label> 
+            <input type="number" [(ngModel)]="newSmartphone.prixSmartphone" name="prixSmartphone" class="form-control" required /> 
+       </div>
+
+        
+          
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>Date création</label>
+                <input type="date" [(ngModel)]="newSmartphone.datecreation"  name="datecreation" class="form-control">
+            </div>
+            
+        <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <label>couleur</label> 
+            <input type="text" [(ngModel)]="newSmartphone.couleur" name="couleur" class="form-control" required /> 
+        </div> 
+        <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <label>Type phone</label> 
+          
+        <select class="form-control form-control-lg" id="idTyp" name="idCat" [(ngModel)]="newIdTyp">
+            <option *ngFor="let typ of types" [value]="typ.idType">
+                {{typ.nomType}}
+            </option>
+        </select>
+       </div> 
+          
+        <div class="mt-2"> 
+            <button type="submit" class="btn btn-success">Ajouter</button> 
+        </div> 
+        <div>{{ message }}</div>   
+    </form> 
+</div>
