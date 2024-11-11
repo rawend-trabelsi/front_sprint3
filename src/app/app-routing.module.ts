@@ -9,6 +9,8 @@ import { ListesTypesComponent } from './listes-types/listes-types.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { SmartphoneGuard } from './smartphone.guard';
+import { RegisterComponent } from './register/register.component';
+import { VerifEmailComponent } from './verif-email/verif-email.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,8 @@ const routes: Routes = [
   {path: "listeTypes", component : ListesTypesComponent}, 
   {path: 'login', component: LoginComponent},
   {path:  'app-forbidden', component: ForbiddenComponent}, 
+  {path:'register',component:RegisterComponent}, 
+  { path: 'verifEmail', component: VerifEmailComponent }, 
 ];
 
 @NgModule({

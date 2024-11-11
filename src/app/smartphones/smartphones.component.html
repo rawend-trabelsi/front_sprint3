@@ -2,25 +2,37 @@
   <div class="card shadow mb-4">                    
     <div class="card-body">  
      <table class="table table-striped"> 
-        <tr> <th>Id</th><th>Nom</th> <th>Prix</th>  <th>Date Création</th> <th>couleur</th><th>Type</th>
-
-         </tr> 
-              <tbody *ngFor="let smartphone of smartphones"> 
-                       <tr > 
-                          <td>{{smartphone.idSmartphone}}</td> 
-                          <td>{{smartphone.nomSmartphone}}</td> 
-                          <td>{{smartphone.prixSmartphone}}</td> 
-                          <td>{{smartphone.datecreation | date:'dd/MM/yyyy'}}</td> 
-                         
-
-                          <td>{{smartphone.couleur}}</td>
-                          <td>{{smartphone.type?.nomType}}</td> 
-                          <td><a *ngIf="authService.isAdmin()"  class="btn btn-danger" (click)="supprimerSmartphone(smartphone)">Supprimer</a></td>
-                          <td><a *ngIf="authService.isAdmin()"  class="btn btn-success" [routerLink]="['/updateSmartphone',smartphone.idSmartphone]">Modifier</a></td> 
-                        </tr> 
-                                                            
-               </tbody> 
+        <tr> 
+          <th>Id</th>
+          <th>Nom</th> 
+          <th>Prix</th>  
+          <th>Date Création</th> 
+          <th>Couleur</th>
+          <th>Type</th> 
+          <th>Image</th>
+        </tr> 
+        <tbody *ngFor="let smartphone of smartphones"> 
+           <tr> 
+              <td>{{smartphone.idSmartphone}}</td> 
+              <td>{{smartphone.nomSmartphone}}</td> 
+              <td>{{smartphone.prixSmartphone}}</td> 
+              <td>{{smartphone.datecreation | date:'dd/MM/yyyy'}}</td> 
+              <td>{{smartphone.couleur}}</td>
+              <td>{{smartphone.type?.nomType}}</td> 
+              <td>
+                <img class="card-img-top img-responsive"
+                src="{{apiurl+'/image/loadfromFS/'+smartphone.idSmartphone}}"
+                     style="height:50px;width:100px">
+              </td>
+              <td>
+                <a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerSmartphone(smartphone)">Supprimer</a>
+              </td>
+              <td>
+                <a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateSmartphone', smartphone.idSmartphone]">Modifier</a>
+              </td> 
+           </tr> 
+        </tbody> 
     </table> 
     </div> 
   </div> 
-</div>  
+</div>
